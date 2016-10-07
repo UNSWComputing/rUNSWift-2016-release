@@ -1,0 +1,21 @@
+// To generate, run:
+// dot -Tpng figWhistleDataFlow.dot -o figWhistleDataFlow.png
+digraph
+{
+    rankdir="LR";
+
+    node [style="bold, filled", fillcolor="#ddeeff" ];
+
+    "Team\nmajority\nvote" -> "C++\nGame\nController\nthread" [dir="both"];
+    "C++\nGame\nController\nthread" -> Playing;
+    Ready[fillcolor="green"]; 
+    Playing[fillcolor="green"];
+    "WAV\nfile" -> "C++\nGame\nController\nthread" [ constraint="false" ];
+    "WAV\nfile" -> PC;
+    PC[image="pc.png", label=""];
+    { rank="same"; PC -> "Classify\nwhistle_yes or\nwhistle_no" -> "Run\npc_wav_test()" -> "Update\nwhistle_detector.py"; }
+    NAO[image="nao_head.png", label=""];
+    NAO -> nao_sync -> "Update\nwhistle_detector.py" [ dir="back" ];
+
+    { rank="same"; "WAV\nfile" -> "Python\nwhistle_detector.py" -> Ready -> NAO [ dir="back" ]; };
+}

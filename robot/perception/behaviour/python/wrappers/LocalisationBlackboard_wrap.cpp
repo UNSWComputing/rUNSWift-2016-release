@@ -1,0 +1,18 @@
+class_<LocalisationBlackboard>("LocalisationBlackboard")
+   .def_readonly("robotPos", &LocalisationBlackboard::robotPos)
+   .def_readonly("ballLostCount", &LocalisationBlackboard::ballLostCount)
+   .def_readonly("ballPosRR", &LocalisationBlackboard::ballPosRR)
+   .def_readonly("ballPosRRC", &LocalisationBlackboard::ballPosRRC)
+   .def_readonly("ballVelRRC", &LocalisationBlackboard::ballVelRRC)
+   .def_readonly("ballVel", &LocalisationBlackboard::ballVel)
+   .def_readonly("robotPosUncertainty", &LocalisationBlackboard::robotPosUncertainty)
+   .def_readonly("robotHeadingUncertainty", &LocalisationBlackboard::robotHeadingUncertainty)
+   .def_readonly("robotHeadingSuggestion", &LocalisationBlackboard::robotHeadingSuggestion)
+   .def_readonly("ballPosUncertainty", &LocalisationBlackboard::ballPosUncertainty)
+   .def_readonly("ballVelEigenvalue", &LocalisationBlackboard::ballVelEigenvalue)
+   .def_readonly("ballPos", &LocalisationBlackboard::ballPos)
+   .def_readonly("ballNeckRelative", &LocalisationBlackboard::ballNeckRelative)
+   .def_readonly("teamBall", &LocalisationBlackboard::teamBall)
+   .def_readonly("robotObstacles", &LocalisationBlackboard::robotObstacles)
+   .def_readonly("receivedBalls", &LocalisationBlackboard::receivedBalls);
+

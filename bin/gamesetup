@@ -1,0 +1,184 @@
+#!/bin/bash
+
+# Functions
+function progress {
+  echo -n "["
+  printf "%+3s" $2
+  echo "%] $1"
+}
+
+function usage {
+  echo "usage: gamesetup [-csb]"
+  echo "	-c --compile		Make/build before syncing"
+  echo "	-s --skipconfig		Skip team/player number configuration"
+  echo "	-b --behaviouronly	Do not do a -rad sync"
+  echo "	-e --noexit		Do not exit early if can't connect to robot"
+  exit 1
+}
+
+# Definitions
+CONFIG_FILE="$RUNSWIFT_CHECKOUT_DIR/build-release/gamesetup.config"
+
+# Set default flag values
+FLAG_BUILD=0
+FLAG_SKIPCONFIG=0
+FLAG_BEHAVIOURONLY=0
+FLAG_NOEXIT=0
+
+# Get options and store
+
+OPTS=`getopt -o csbhe --long compile,skipconfig,behaviouronly,noexit,help -- "$@"`
+eval set -- "$OPTS"
+while true ; do
+  case "$1" in
+    -c|--compile) FLAG_BUILD=1; shift 1;;
+    -s|--skipconfig) FLAG_SKIPCONFIG=1; shift 1;;
+    -b|--behaviouronly) FLAG_BEHAVIOURONLY=1; shift 1;;
+    -e|--noexit) FLAG_NOEXIT=1; shift 1;;
+    -h|--help) usage;;
+    --) shift; break;;
+    *) echo "Type -h or --help for instructions."; exit 1;;
+  esac
+done
+
+# Build if --nobuild was not set
+if [ $FLAG_BUILD -eq 1 ]
+then
+  cd $RUNSWIFT_CHECKOUT_DIR/build-release
+  make
+fi
+
+# Clear the window
+clear
+
+if [ $FLAG_SKIPCONFIG -ne 1 ]
+then
+  INFO=""
+  yesno="y"
+  if [ -f "$CONFIG_FILE" ]
+  then
+    INFO=`cat "$CONFIG_FILE"`
+  fi
+  if [ "$INFO" == "" ]
+  then
+    echo "No configuration file exists. You will have to write one. Each line follows the format:"
+    echo " team number | player name | player number"
+    echo ""
+    echo "Press any key to create the file..."
+    read yesno
+    gedit "$CONFIG_FILE" &> /dev/null
+  else
+    echo "Please read the following settings."
+    echo "They follow format \"team number | player name | player number\""
+    echo "==============================================================="
+    echo "$INFO"
+    echo "==============================================================="
+    echo "Are the following configuration settings OK? [Y/n]"
+    read yesno
+    if [ "$yesno" != "y" ] && [ "$yesno" != "Y" ]
+    then
+      gedit "$CONFIG_FILE" &> /dev/null
+    fi
+  fi
+  echo "==============================================================="
+fi
+
+progress "Updating configuration files" 0
+
+numPlayersOriginal=`wc -l $CONFIG_FILE | cut -d' ' -f1`
+numPlayers=$(expr $numPlayersOriginal + 2)
+count=1
+percentage=$(expr $count \* 100 / $numPlayers)
+
+progress "Checking available connections to robots" $percentage
+
+error=0
+while read p
+do
+  name=`echo $p | cut -d'|' -f2`
+  ping -q -c 1 "$name.local" &> /dev/null
+  if [ $? -ne 0 ]
+  then
+    error=1
+    echo "Unable to ping $name.local"
+  fi
+done < $CONFIG_FILE
+
+if [ $error -eq 1 ]
+then
+  if [ $FLAG_NOEXIT -ne 1 ]
+  then
+    echo
+    echo "Fatal error. Unable to connect to robots above."
+    echo
+    exit 1
+  fi
+fi
+
+SUCCESSARRAY=()
+count=2
+while read p
+do
+  team=`echo $p | cut -d'|' -f1`
+  name=`echo $p | cut -d'|' -f2`
+  numb=`echo $p | cut -d'|' -f3`
+
+  if [ "$team" != "" ]
+  then
+
+    ssh-keygen -R "$name.local" &> /dev/null
+    ssh-keyscan -H "$name.local" >> ~/.ssh/known_hosts 2> /dev/null
+
+    percentage=$(expr $count \* 100 / $numPlayers)
+    progress "Setting up $name on team $team and player $numb" $percentage
+    path="$RUNSWIFT_CHECKOUT_DIR/image/home/nao/data/configs"
+    file="$path/$name.cfg"
+    sed -i "2s/.*/number=$numb/" $file
+    if [ $? -ne 0 ]
+    then
+      echo ""
+      # fail
+    fi
+    sed -i "3s/.*/team=$team/" $file
+    if [ $? -ne 0 ]
+    then
+      echo ""
+      # fail
+    fi
+
+    if [ $FLAG_BEHAVIOURONLY -eq 1 ]
+    then
+      nao_sync "$name.local" < /dev/null > /tmp/fuck2 2> /tmp/fuck
+    else
+      nao_sync -rad "$name.local" < /dev/null > /tmp/fuck2 2> /tmp/fuck
+    fi
+    errorResponse=`cat /tmp/fuck`
+    if cat /tmp/fuck | grep -q "not resolve"
+    then
+      if [ $FLAG_NOEXIT -ne 1 ]
+      then
+        echo "==="
+      fi
+      echo "Error. Unable to resolve hostname $name.local"
+      if [ $FLAG_NOEXIT -ne 1 ]
+      then
+        echo "==="
+        exit 1
+      fi
+    else
+      SUCCESSARRAY+=("$name")
+      ssh -o "StrictHostKeyChecking no" "nao@$name.local" "flite -t \"$name ready. player $numb. team $team\"; exit" < /dev/null &>> /dev/null
+    fi
+
+    count=$(expr $count + 1)
+  fi
+done < $CONFIG_FILE
+
+function join { local IFS="$1"; shift; echo "$*"; }
+players=`join " , " "${SUCCESSARRAY[@]}"`
+progress "Setup complete" 100
+echo
+echo "${#SUCCESSARRAY[@]}/$numPlayersOriginal players synced: $players"
+echo "Ready to play."
+echo
+exit 0

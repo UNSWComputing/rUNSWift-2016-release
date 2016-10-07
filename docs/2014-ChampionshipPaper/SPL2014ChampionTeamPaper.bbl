@@ -1,0 +1,163 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{anderson2012improvingperception}
+Anderson, P.: New methods for improving perception in {R}obo{C}up {SPL} (2012),
+  {UNSW CSE R}obo{C}up Report 20120830-Peter.Anderson-ImprovingPerception.pdf
+
+\bibitem{anderson2014fast}
+Anderson, P., Hengst, B.: Fast monocular visual compass for a compuationally
+  limited robot. In: Behnke, S., Veloso, M., Visser, A., Xiong, R. (eds.)
+  RoboCup 2013: Robot World Cup XVII. Lecture Notes in Computer Science, vol.
+  8371, pp. 244--255. Springer Berlin Heidelberg (2014)
+
+\bibitem{anderson2013icpsensormodel}
+Anderson, P., Hunter, Y., Hengst, B.: An {ICP} inspired inverse sensor model
+  with unknown data association. In: IEEE International Conference on Robotics
+  and Automation (ICRA). pp. 2713--2718. IEEE (2013)
+
+\bibitem{anderson2012naturallandmark}
+Anderson, P., Yusmanthia, Y.: Natural landmark localisation for {R}obo{C}up
+  (2012), {UNSW CSE R}oboc]{C}up Report
+  20111113-AndersonYusmanthia-NaturalLandmarks.pdf
+
+\bibitem{anderson2012robot}
+Anderson, P., Yusmanthia, Y., Hengst, B., Sowmya, A.: Robot localisation using
+  natural landmarks. Proceedings of the 2012 RoboCup International Symposium
+  (2012)
+
+\bibitem{hengst10robocup}
+Ashar, J., Claridge, D., Hall, B., Hengst, B., Nguyen, H., Pagnucco, M.,
+  Ratter, A., Robinson, S., Sammut, C., Vance, B., White, B., Zhu, Y.:
+  {R}obo{C}up {S}tandard {P}latform {L}eague - r{UNSW}ift 2010. In:
+  Australasian Conference on Robotics and Automation (2010)
+
+\bibitem{ashmore2014robotdetection}
+Ashmore, J.: Robot detection using {B}ayesian machine learning (2014), {UNSW
+  CSE R}obo{C}up Report 20140831-Jaiden.Ashmore-RobotDetectionReport.pdf
+
+\bibitem{chatfield2011foveated}
+Chatfield, C.: r{UNSW}ift 2011 vision system: A foveated vision system for
+  robotic soccer (2011), {UNSW CSE R}obo{C}up Report
+  20110825-Carl.Chatfield-VisionFoveated.pdf
+
+\bibitem{claridge2010runswiftcoderelease}
+Claridge, D.: {rUNSWift} 2010 code release (2010),
+  http://github.com/UNSWComputing/runswift
+
+\bibitem{claridge2011generationpython}
+Claridge, D.: Generation of {P}ython interfaces for {R}obo{C}up {SPL} robots
+  (2011), {UNSW CSE R}obo{C}up Report 20110228-David.Claridge-Python.pdf
+
+\bibitem{claridge2011multihypothesiskf}
+Claridge, D.: Multi-hypothesis localisation for the {NAO} humanoid robot in
+  {R}obo{C}up {SPL} (2011), {UNSW CSE R}obo{C}up Report
+  20110830-David.Claridge-MulitHypothesisLocalisation.pdf
+
+\bibitem{deng2011natural}
+Deng, Y.: Natural landmark localisation (2011), {UNSW CSE R}obo{C}up Report
+  20110830-Yiming.Deng-NaturalLandmarksLocalisation.pdf
+
+\bibitem{harris2011featureransac}
+Harris, S.: Efficient feature detection using {RANSAC} (2011), {UNSW CSE
+  R}obo{C}up Report 20110824-Sean.Harris-RansacVision.pdf
+
+\bibitem{harris2012robocup}
+Harris, S., Anderson, P., Teh, B., Hunter, Y., Liu, R., Hengst, B., Roy, R.,
+  Li, S., Chatfield, C.: Robocup standard platform league - r{UNSW}ift 2012
+  innovations. In: Proceedings of the 2012 Australasian Conference on Robotics
+  and Automation (ACRA 2012) (2012)
+
+\bibitem{hengst2010robocupstoryboard}
+Hengst, B.: Robocup 2010 version 1 storyboard prototype (2009), {UNSW CSE
+  R}obo{C}up Report 20091013-Bernhard.Hengst-Robocup2010Storyboard.pdf
+
+\bibitem{hengst2013bipedallateralRL}
+Hengst, B.: Reinforcement learning of bipedal lateral behaviour and stability
+  control with ankle-roll activation. In: 16th International Conference on
+  Climbing and Walking Robots, Sydney Australia (CLAWAR2013). World Scientific
+  Publishing Company (2013)
+
+\bibitem{hengst2014walk}
+Hengst, B.: r{UNSW}ift {W}alk2014 report (2014), {UNSW CSE R}obo{C}up Report
+  20140930-Bernhard.Hengst-Walk2014Report.pdf
+
+\bibitem{hengst2000unswunited}
+Hengst, B., Ibbotson, D., Pham, S.B., Sammut, C.: The {UNSW} {U}nited 2000
+  {S}ony legged robot software system (2000), {UNSW CSE R}obo{C}up Report
+  20001114-HengstEtAl-RobocupReport.pdf
+
+\bibitem{hengst2011learning}
+Hengst, B., Lange, M., White, B.: Learning ankle-tilt and foot-placement
+  control for flat-footed bipedal balancing and walking. 11th IEEE-RAS
+  International Conference on Humanoid Robots  (2011)
+
+\bibitem{youssef2011industrial}
+Hunter, Y.: Industrial training report (foot detection and ball stealing)
+  (2011), {UNSW CSE R}obo{C}up Report
+  20110216-Youssef.Hunter-FootDetectionForBallStealing.pdf
+
+\bibitem{hunter2012localisation}
+Hunter, Y.: Humanoid robot localisation for the {R}obocup {S}tandard {P}latform
+  {L}eague (2012), {UNSW CSE R}obo{C}up Report
+  20120824-Youssef.Hunter-Localisation.pdf
+
+\bibitem{jisarojito2011trackingoverhead}
+Jisarojito, J.: Tracking a robot using overhead cameras (2011), {UNSW CSE
+  R}obo{C}up Report 20110217-Jarupat.Jisarojito-OverheadCameras.pdf
+
+\bibitem{kurniawan2011modalrobotdetection}
+Kurniawan, J.: Multi-modal machine-learned robot detection for {R}obo{C}up
+  {SPL} (2011), {UNSW CSE R}obo{C}up Report
+  20110824-Jimmy.Kurniawan-RobotDetection.pdf
+
+\bibitem{lange2011cycloid}
+Lange, M.: Developing a bipedal walk using a {C}ycloid {II} (2011), {UNSW CSE
+  R}obo{c}up Report 20110731-Manuel.Lange-BipedalCycloidWalk.pdf
+
+\bibitem{lui2013bipedal}
+Liu, R.: Bipedal walk and goalie behaviour in {R}obocup {SPL} (2013), {UNSW CSE
+  R}obo{C}up Report 20130108-Roger.Liu-WalkAndGoalie.pdf
+
+\bibitem{ratter2011fast}
+Ratter, A., Claridge, D., Ashar, J., Hengst, B.: Fast object detection with
+  foveated imaging and virtual saccades on resource limited robots. In: The
+  24th Australasian Joint Conference on Artificial Intelligence (AI2011) (2011)
+
+\bibitem{cse10rUNSWift2010}
+Ratter, A., Hengst, B., Hall, B., White, B., Vance, B., Claridge, D., Nguyen,
+  H., Ashar, J., Robinson, S., Zhu, Y.: r{UNSW}ift team report 2010 robocup
+  standard platform league (2010), {UNSW CSE R}obo{C}up Report
+  20100930-2010rUNSWiftTeamReport.pdf
+
+\bibitem{sushkov2006robotlocalisation}
+Sushkov, O.: Robot localisation using a distributed multi-modal kalman filter,
+  and friends (2006), {UNSW CSE R}obo{C}up Report
+  20060908-Oleg.Suchkov-Localisation.pdf
+
+\bibitem{teh2011ballmodelling}
+Teh, B.: Ball modelling and its application in robot goalie behaviours (2011),
+  {UNSW CSE R}obo{C}up Report
+  20110824-Belinda.Teh-BallModellingGoalieBehaviour.pdf
+
+\bibitem{teh2012kicks}
+Teh, B.: Dynamic omnidirectional kicks on humanoid robots (2012), {UNSW CSE
+  R}obo{C}up Report 20120824-Belinda.Teh-OmniDirectionalKicks.pdf
+
+\bibitem{tsekouras2014heel}
+Tsekouras, L.: A heel to toe gait for efficient bipedal walking and stricker
+  behaviour for r{UNSW}ift {R}obocup {SPL} 2014 (2014), {UNSW CSE R}obo{C}up
+  Report 20141105-Luke.Tsekouras-AHeeltoToeGait.pdf
+
+\bibitem{tsekouras2014runswift}
+Tsekouras, L., Ashmore, J., Mei, Z., Teh, B., Sushkov, O., Roy, R., Liu, R.,
+  Harris, S., Ashar, J., Hall, B., Hengst, B., Pagnucco, M., Sammut, C.: Team
+  r{UNSW}ift {U}niversity of {NSW} {A}ustralia, {UNSW CSE R}obo{C}up Report
+  20140630-2014Team-Robocup2014rUNSWiftTeamDescription.pdf
+
+\bibitem{white2011humanoid}
+White, B.: Humanoid omni-directional locomotion (2011), {UNSW CSE R}obo{C}up
+  Report 20111010-Brock.White-OmniDirectionalLocomotion.pdf
+
+\end{thebibliography}

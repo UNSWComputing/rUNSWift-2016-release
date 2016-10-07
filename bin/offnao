@@ -1,0 +1,6 @@
+#!/bin/sh
+cd ${RUNSWIFT_CHECKOUT_DIR}
+cd build-release
+cd utils
+cd offnao
+./offnao

@@ -1,0 +1,7 @@
+#!/bin/bash
+cat $RUNSWIFT_CHECKOUT_DIR/build-release/gamesetup.config | while read p
+do
+  name=`echo $p | cut -d'|' -f2`
+  ssh "nao@$name.local" "killall runswift; exit" < /dev/null &> /dev/null &
+done
+echo "All naos killed"

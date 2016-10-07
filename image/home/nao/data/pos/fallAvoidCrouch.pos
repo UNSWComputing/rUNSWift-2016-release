@@ -1,0 +1,7 @@
+# Go down into a crouch position
+# HY   HP   LSP  LSR  LEY  LER  LWY  LH   LHYP LHR  LHP  LKP  LAP  LAR  RHR  RHP  RKP  RAP  RAR  RSP  RSR  REY  RER  RWY  RH   DUR
+  0.1  31   90   50   0.2  -15  0    0    0    0    -70  120  -59  0    0    -70  120  -59  0    90   -50  0.2  15   0    0    300
+$ 0.5  0.66 0.66 0.66 0.66 0.66 0    0    0.66 0.66 0.66 0.66 0.66 0.66 0.66 0.66 0.66 0.66 0.66 0.66 0.66 0.66 0.66 0    0
+
+
+ 

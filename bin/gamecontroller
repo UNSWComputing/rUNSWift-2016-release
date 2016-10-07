@@ -1,0 +1,3 @@
+#!/bin/sh
+cd ${RUNSWIFT_CHECKOUT_DIR}/GameController2016/
+java -jar GameController.jar -w
